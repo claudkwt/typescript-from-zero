@@ -21,5 +21,6 @@ const address = { city: "London", postcode: "E1 6AN" };
 const userDetails = mergeObjects(user, address);
 // userDetails should have type: { name: string, age: number, city: string, postcode: string }
 
+// Ignore the line below
 export {};
 

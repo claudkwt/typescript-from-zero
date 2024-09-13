@@ -30,3 +30,5 @@ type HorizontalDirection = myExclude<Direction, "up" | "down">;
 
 type OppositeDirection<T extends Direction> = T extends "up" ? "down" : "up";
 type OppositeUp = OppositeDirection<"up">
+// Ignore the line below
+export {};

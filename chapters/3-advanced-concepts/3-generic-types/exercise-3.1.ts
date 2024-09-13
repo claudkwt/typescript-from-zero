@@ -38,6 +38,24 @@ async function fetchOrderData() {
 const ProductData = fetchData;
 const OrderData = fetchData<Order[]>("/api/products");
 
+type Product = {id: number, name: string};
+type Order = {orderId: number, total: number};
+
+async function fetchData<T>(url: string){
+  const resp = await fetch(url);
+  const data = await resp.json();
+  return data as T;
+}
+
+async function fetchProductData() { 
+  return fetchData<Product[]>("/api/products")
+}
+async function fetchOrderData() { 
+  return fetchData<Order[]>("/api/orders")
+}
+const ProductData = fetchData;
+const OrderData = fetchData<Order[]>("/api/products");
+
 export {};
 
 //Question 2
@@ -96,3 +114,5 @@ type Tuple = [string, number];
 type FirstTupleElement = FirstElement<Tuple> 
 
 const firstTry : FirstTupleElement = "can only be string";
+// Ignore the line below
+export {};
