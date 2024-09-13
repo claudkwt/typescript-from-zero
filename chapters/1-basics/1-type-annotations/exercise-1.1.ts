@@ -1,23 +1,23 @@
 // Exercise 1.1: Type annotations
 // Add/correct type annotations to all the variable and functions below.
 
-const age = 25;
-const message = "Hello, world!";
-const isTrue = true;
+const age: number = 25;
+const message: string = "Hello, world!";
+const isTrue: boolean = true;
 
-function add(a, b) {
+function add(a: number, b:number) :number {
   return a + b;
 }
 
-function sayHello(name) {
+function sayHello(name: string) : string {
   return `Hello, ${name}!`;
 }
 
-function isEven(n) {
+function isEven(n: number) : boolean {
   return n % 2 === 0;
 }
 
-function getAge() {
+function getAge(): number {
   return 25;
 }
 

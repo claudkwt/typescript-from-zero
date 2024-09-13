@@ -1,9 +1,13 @@
 // EXERCISE 3.2: Generic functions
 // Create a generic function to merge two objects
 // In this exercise, you will write a function that merges two objects.
-// The function should be flexible enough to merge any kind of objects and preserve the type of each property.
+// The function should be flexible enough to merge any kind of objects
+// and preserve the type of each property.
 
-function mergeObjects(obj1, obj2) {
+function mergeObjects<
+  T extends Record<string, unknown>, 
+  U extends Record<string, unknown>
+>(obj1: T, obj2: U) {
   return { ...obj1, ...obj2 };
 }
 
@@ -18,3 +22,4 @@ const userDetails = mergeObjects(user, address);
 // userDetails should have type: { name: string, age: number, city: string, postcode: string }
 
 export {};
+

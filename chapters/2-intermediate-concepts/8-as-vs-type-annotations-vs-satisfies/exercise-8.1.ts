@@ -1,4 +1,4 @@
-// Exercise 8.1: "as" vs type annotations vs "satisfies"
+// Exercise 8.1: "as" vs type annotations vs "satisfies" [TODO]
 
 // 1. Refactor the following code to use type annotations instead of "as"
 const userInput = getUserInput() as string;

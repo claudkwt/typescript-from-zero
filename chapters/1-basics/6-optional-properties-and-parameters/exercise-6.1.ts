@@ -2,7 +2,7 @@
 // Add type annotations where necessary and modify the functions to handle optional parameters appropriately.
 
 // 1. Refactor this function to use an optional parameter for 'title'
-function greet(name, title) {
+function greet(name: string , title?: string) {
   if (title) {
     return `Hello, ${title} ${name}!`;
   }
@@ -24,24 +24,39 @@ console.log(greet("Charlie", "Mr.", "Brown"));
 //    - email (optional)
 //    - isAdmin
 //    - address (optional)
-type User = ; // Your implementation here
+type User = {
+  name: string;
+  age?: number;
+  email?: string;
+  isAdmin: boolean;
+  address?: Address;
+}; // Your implementation here
 
 // 3. Define type for Address
 //    - street
 //    - city
 //    - country
-type Address = ; // Your implementation here
+type Address = {
+  street: string;
+  city: string;
+  country: string;
+}; // Your implementation here
 
 // 4. Create a type for the configuration object with optional properties
-type UserConfig = ; // Your implementation here
+type UserConfig = {
+  name: string;
+  age?: number;
+  email?: string;
+  isAdmin?: boolean;
+}; // Your implementation here
 
 // 5. Refactor the function to take in UserConfig and return User.
-function createUser(config) {
+function createUser(config: UserConfig): User {
   return {
     name: config.name,
-    age: config.age ?? "Unknown",
+    age: config.age ?? undefined,
     email: config.email ?? "No email provided",
-    isAdmin: config.isAdmin,
+    isAdmin: config.isAdmin ?? false,
   };
 }
 
@@ -76,10 +91,15 @@ function getFullAddress(user) {
 //   - price
 //   - description (optional)
 //   - category (optional)
-type Product = ; // Your implementation here
+type Product = {
+  name: string;
+  price: number;
+  description?: string;
+  category?: string;
+}; // Your implementation here
 
 // Then, refactor the function to use this type and handle optional properties
-function displayProductInfo(product) {
+function displayProductInfo(product: Product) {
   let info = `${product.name} - $${product.price}`;
 
   if (product.description) {

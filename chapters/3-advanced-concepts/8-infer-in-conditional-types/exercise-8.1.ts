@@ -4,7 +4,8 @@
 // 1. Implement a 'Parameters' type that extracts the parameter types of a function type as a tuple
 // Example: Parameters<(a: number, b: string) => void> should be [number, string]
 
-type MyParameters<T extends (...args: any) => any> = ; // Your implementation here
+type MyParameters<T extends (...args: any) => any> = T extends (...args: infer U) => any 
+    ? U : never; // Your implementation here
 type ParamsTest = MyParameters<(a: number, b: string, c: boolean) => void>;
 //   ^?
 const paramsTest: ParamsTest = [1, "hello", true];

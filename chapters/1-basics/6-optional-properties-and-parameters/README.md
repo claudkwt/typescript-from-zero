@@ -57,6 +57,8 @@ The nullish coalescing operator `??` provides a way to fallback to a default val
 ```typescript
 function getUsername(user: { name: string; username?: string }) {
   return user.username ?? user.name;
+  //is good to use this as it will only defaults in null or undefined values 
+  // when username could be a falsy value (e.g. username: number = 0) and using || "or" cld default to fallback
 }
 ```
 

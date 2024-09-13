@@ -4,23 +4,27 @@
 
 // 1. Create a union type for different shapes
 // Hint: Use "circle", "square", and "triangle" as literal types
-type Shape = ;
+type Shape = "circle" | "square" | "triangle";
 
 // 2. Create a type for a point in 2D space
 // The x and y coordinates should only allow -1, 0, or 1
-type Point = ;
+type Point1 = -1 | 0 | 1
+type Point = { 
+    x: Point1, 
+    y: Point1 
+};
 
 // 3. Create a union type for different HTTP methods
 // Hint: Use "GET", "POST", "PUT", "DELETE" as literal types
-type HttpMethod = ;
+type HttpMethod = "GET" | "POST" | "PUT";
 
 // 4. Create a type for API response status
 // It should allow "success" and "error" as string literals, or a number for the status code
-type ApiStatus = ;
+type ApiStatus = "success" | "error" | number;
 
 // 5. Add type annotations to this function
 // It should accept the Shape type you defined and return a number
-function getArea(shape, size) {
+function getArea(shape: Shape, size: number) {
   switch (shape) {
     case "circle":
       return Math.PI * size * size;
@@ -33,31 +37,35 @@ function getArea(shape, size) {
 
 // 6. Add type annotations to this function
 // It should accept the Point type you defined and return a string
-function describePoint(point) {
+function describePoint(point: Point) {
   return `(${point.x}, ${point.y})`;
 }
 
 // 7. Add type annotations to this function
 // It should accept the HttpMethod type you defined and a URL string
 // The return type should be a union of 'string' and 'undefined'
-function makeRequest(method, url) {
+function makeRequest(method: HttpMethod, url: string): string | undefined {
   // Implementation not required
+  return 
 }
 
 // 8. Create a type for a configuration object
 // It should have a mode property that only allows "development" or "production"
 // and an optional debug property that's a boolean
-type Config = ;
+type Config ={
+  mode: "development" | "production";
+  debug: boolean
+};
 
 // 9. Add type annotations to this function
 // It should accept the Config type you defined
-function setConfig(config) {
+function setConfig(config: Config) {
   // Implementation not required
 }
 
 // 10. Create a literal type for valid status values
 // Then, refactor the function to use this type
-function updateStatus(status) {
+function updateStatus(status: "active" | "inactive" | "suspended") {
   if (status === "active" || status === "inactive" || status === "suspended") {
     // Update the status
   } else {
@@ -70,7 +78,7 @@ updateStatus("inactive");
 
 // 11. Create a union type for possible log levels
 // Then, refactor the function to use this type and add type annotations
-function log(message, level) {
+function log(message: string, level: "INFO" | "ERROR") {
   const timestamp = new Date().toISOString();
   console.log(`[${timestamp}] [${level}] ${message}`);
 }
@@ -79,4 +87,4 @@ log("Server started", "INFO");
 log("Database connection failed", "ERROR");
 
 // Ignore this line
-export {};
+export { };

@@ -7,8 +7,12 @@ const data = {
   isActive: true,
 };
 
+type Data = typeof data;
+type DataKey = keyof Data;
+type DataValue = Data[DataKey];
+
 // Refactor to a type definition that can ensure proper typing.
-function getValue(key) {
+function getValue(key: DataKey) {
   return data[key];
 }
 

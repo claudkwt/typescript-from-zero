@@ -53,3 +53,7 @@ These cases will be covered in later chapters. For now, when it is clear what a 
 ## Exercise 2.1
 
 Make the code more concise by identifying and removing unnecessary type annotations.
+
+# Questions
+1. When to define explicitly and when not? 
+A: Errors will appear in the local function when explicitly defined while if not explicitly define, if the function is used, the error will appear in the line its used.

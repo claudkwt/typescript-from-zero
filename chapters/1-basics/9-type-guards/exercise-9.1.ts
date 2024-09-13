@@ -7,8 +7,12 @@ type User = {
 };
 type Person = User | "string"
 
+function isString(name: unknown): name is string {
+  return typeof name === "string";
+}
+
 // 1. Add relevant type annotations to make isUser a type guard
-function isUser(value) {
+function isUser(value : unknown): value is string {
   return typeof value !== "string";
 }
 
@@ -31,8 +35,12 @@ type Rectangle = {
 type Shape = Circle | Rectangle;
 
 // 2. Add relevant type annotations to make isCircle a type guard
-function isCircle(shape) {
+function isCircle(shape: unknown) : shape is Circle {
   // Implement the type guard
+  return shape !== null && 
+  typeof shape === "object" && 
+  "kind" in shape && 
+  shape.kind === "circle";
 }
 
 const shapes: Shape[] = [

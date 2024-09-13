@@ -8,7 +8,25 @@
 // 3. 'Improvement': id (number), title (string), estimatedTime (number)
 // Use a 'type' property as the discriminant
 
-type Task = ;// Your implementation here
+type Bug = {
+  type: "Bug";
+  id: number;
+  title: string;
+  severity: "low" | "medium" | "high"
+}
+type Feature = {
+  type: "Feature";
+  id: number;
+  title: string;
+  priority: number;
+}
+type Improvement = {
+  type: "Improvement";
+  id: number;
+  title:string;
+  estimatedTime: number;
+}
+type Task = Bug | Feature | Improvement;// Your implementation here
 
 // TODO: Implement a function 'summarizeTask' that takes a Task and returns
 // a string summary:
@@ -18,6 +36,14 @@ type Task = ;// Your implementation here
 
 function summarizeTask(task: Task): string {
   // Your implementation here
+  switch (task.type){
+    case "Bug":
+      return `${task.title} (Bug - ${task.severity} severity)`
+    case "Feature":
+      return `${task.title} (Feature - priority ${task.priority})`
+    case "Improvement":
+      return `${task.title} (Improvement - est. ${task.estimatedTime} hours)`
+  }
 }
 
 // Test your implementation
